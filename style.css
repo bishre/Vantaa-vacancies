@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 10% 1fr 1fr 100px;
+  grid-template-rows: 100px 1fr auto 100px;
+  grid-template-areas: "header header header header"
+                        "sidebar1 main1 main2 sidebar2"
+                        "sidebar1 main3 main3 sidebar2"
+                        "sidebar1 footer footer sidebar2";
+  /* grid-gap: 20px 20px; */
+  align-content: space-between;
+}
+
+.list {
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+  grid-area: main1;
+  padding: 5em;
+  background-color: #ddd;
+  margin: 1%;
+}
+
+.map {
+  grid-column: 3 / span 1;
+  grid-row: 2 / span 1;
+  grid-area: main2;
+  align-self: center;
+  margin: 0.5%;
+}
+
+.graph {
+  grid-column: 2 / span 2;
+  grid-row: 3 / span 2;
+  grid-area: main3;
+  padding: 1%;
+  margin: 1em auto;
+  background-color: #a7cdf2;
+}
+
+.jobs {
+  padding: 1em;
+  grid-area: header;
+  background-color: #a7cdf2;
+  text-align: center;
+  border-bottom: 10px solid #f18d00;
+}
+
+.menu {
+  padding: 0;
+  grid-area: sidebar1;
+  background-color: #9bffa7;
+
+}
+
+.contact {
+  grid-area: sidebar2;
+  background-color: #9bffa7;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #f4d469;
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 50px 1fr 1fr 1fr 50px 50px;
+    grid-template-areas: "header"
+                        "sidebar1"
+                          "main1"
+                          "main2"
+                          "main3"
+                          "sidebar2"
+                          "footer";
+    /* grid-gap: 20px 20px; */
+    align-content: center;
+  }
+  .jobs {
+    grid-area: header;
+  }
+  .menu {
+    grid-area: sidebar1;
+  }
+  .menu, .contact, .footer {
+    text-align: center;
+    align-items: center;
+  }
+  .list {
+    grid-area: main1;
+    margin: 0;
+    padding: 5%;
+    align-items: center;
+    font-size: 1.2em;
+  }
+  .map {
+    grid-area: main2;
+    /* width: auto; */
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  .menu {
+    padding: 0;
+    margin: 0;
+  }
+  .graph {
+    grid-area: main3;
+    padding: 0;
+    margin: 0;
+    background-color: #a7cdf2;
+  }
+  .contact {
+    grid-area: sidebar2;
+  }
+  .footer {
+    grid-area: footer;
+  }
+}
